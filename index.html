@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> SocialCops - Sachin Tendulkar's Career Analysis</title>
+	<meta name="viewport" content="width=device-width"/>
+  	<link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  	<link href="bower_components/angular-bootstrap/ui-bootstrap-csp.css" rel="stylesheet">
+  	<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="bower_components/highcharts/css/highcharts.css">
+    <link href="bower_components/angular-material/angular-material.css" rel="stylesheet">
+  	<link rel="stylesheet" href="style.css"/>
+</head>
+<body ng-app="socialApp" ng-controller="homecontroller as hm">
+  <div class="container">
+  	<div class="col-md-12">
+      <div class="header">
+  			<p class="title">Sachin Tendulkar</p>
+  			<p class="description">Career Data Analysis</p>
+  			<div class="profile-pic-box">
+  				<img src="images/sachin.jpg" class="profile-pic">
+  			</div>
+  		</div>
+
+      <div class="content-section">
+        <p class="statement">Wikipedia says, “Sachin Tendulkar is a former Indian cricketer, widely regarded to be the greatest cricketer of all time.”</p>
+        <p class="statement-sub">Is It TRUE ?</p>
+        <p class="statement-sub">Lets Find Out</p>
+
+        <a href="#info-section" class="btn btn-circle">
+    		  <i class="fa fa-angle-double-down animated"></i>
+        </a>
+      </div>
+
+  	</div>
+  </div>
+  <div class="container" id="info-section" style="margin-top:50px;">
+    <div class="basic">
+      <div class="col-md-4">
+        <div class="info-box" sc-scroll-with-parent>
+          <div class="info-meta">
+            <div class="info-filter">
+              <p>Career Type </p>
+              <md-select ng-model="career" placeholder="All" ng-change="hm.switchCareerRecord(career)">
+                <md-option value="all">All</md-option>
+                <md-option value="domestic">Domestic</md-option>
+                <md-option value="international">Interntional</md-option>
+              </md-select>
+              <p>Opposition </p>
+              <md-select ng-model="opposition" placeholder="All" ng-change="hm.filterOppositionData(opposition)">
+                <md-option value="all">All</md-option>
+                <md-option ng-repeat="team in hm.oppositionTeam" value="{{team}}">{{team}}</md-option>
+              </md-select>            
+            </div>
+            <p><span>Matches played :</span><span> {{hm.matchesPlayed}}</span></p>
+            <p><span>Runs scored :</span><span> {{hm.battingScore}}</span></p>
+            <p><span>100's :</span><span> {{hm.centuryCount}}</span></p>
+            <p><span>50's :</span><span> {{hm.halfCenturyCount}}</span></p>
+            <p><span>Runs Avg :</span><span> {{hm.avg | number:2}}</span></p>
+            <p><span>Wins Percent :</span><span> {{hm.winsPercentage | number:2}} %</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-8 graph-container">
+        <div class="graph-box" ng-cloak ng-if="hm.showgraph">
+          <highchart id="chart1" config="hm.chartConfig" class="span1" style="width:100%; font-family: PoiretOne;">
+          </highchart>
+        </div>
+        <div class="pieChart-box">
+          <highchart id="chart2" config="hm.pieChartConfig" class="span2">
+        </div>
+        <div class="career-facts-btn-box" style="padding: 10px; margin-bottom: 40px;"><span class="career-facts-btn" ng-click="hm.showFactsDialog($event)">Let's Read Some Facts Now</span></div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/lodash/dist/lodash.min.js"></script>
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular-messages.min.js"></script>
+  <script src="bower_components/angular-material/angular-material.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+  <script src="bower_components/highcharts/js/highcharts.js"></script>
+  <script src="bower_components/highcharts-ng/dist/highcharts-ng.js"></script>
+  <script src="bower_components/moment/moment.js"></script>
+  <script src="bower_components/angular-moment/angular-moment.js"></script>
+  <script src="app.js"></script>
+  
+  <!-- Services -->
+  <script src="player.service.js"></script>
+
+  <!-- directives -->
+  <script src="directives/hcPieChart.js"></script>
+  <script src="directives/hcCustomChart.js"></script>
+  <script src="directives/scScrollWithParent.js"></script>
+
+
+  <!-- controllers -->
+  <script src="homecontroller.js"></script>
+  <script src="dialogcontroller.js"></script>
+
+
+</body>
+</html>

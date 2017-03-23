@@ -1,0 +1,56 @@
+<md-dialog class="fullscreen-dialog">
+  <form ng-cloak>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Why Sachin is regarded as the greatest player of all time ?</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <i class="pull-right fa fa-times fa-2x"></i>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <div class="md-dialog-content">
+      <h2>Well, These are his career facts that reveals it all : </h2>
+      <br>
+      <div class="facts-box">
+        <div>
+          <p class="facts-title"><i class="fa fa-trophy"></i> Highest Number of International Matches Played -> <b>{{matchesPlayed}}</b></p>
+          <p class="facts-source"><a href="http://stats.espncricinfo.com/ci/content/records/223375.html">Source</a></p>
+          <p class="facts-subtitle">Closest to him is DPMD Jayawardene (SL) with 448 matches</p>
+        </div>
+        <div>
+          <p class="facts-title"><i class="fa fa-trophy"></i> Longest International Cricket Career Span : <b>{{spanYears}} Y {{spanDays}} D</b> (From {{firstDate | date:"dd MMM yyyy"}} to {{lastDate | date:"dd MMM yyyy"}} )</p>
+          <p class="facts-source"><a href="http://stats.espncricinfo.com/ci/content/records/283448.html">Source</a></p>      
+          <p class="facts-subtitle">Closest to him is ST Jayasuriya (SL) with 21y 184d</p>
+        </div>
+        <div>
+          <p class="facts-title"><i class="fa fa-trophy"></i> Highest Number of Runs Scored -> <b>{{totalRuns}}</b></p>
+          <p class="facts-source"><a href="http://stats.espncricinfo.com/ci/content/records/83548.html">Source</a></p>      
+          <p class="facts-subtitle">Closest to him is KC Sangakkara (SL) with 14234 Runs</p>
+        </div>
+        <div>
+          <p class="facts-title"><i class="fa fa-trophy"></i> Highest Number of 50's : <b>{{halfCenturyCount}}</b></p>
+          <p class="facts-source"><a href="http://stats.espncricinfo.com/ci/content/records/83548.html">Source</a></p>      
+          <p class="facts-subtitle">Closest to him is KC Sangakkara (SL) with 93</p>
+        </div>
+        <div>
+          <p class="facts-title"><i class="fa fa-trophy"></i> Highest Number of 100's : <b>{{centuryCount}}</b></p>
+          <p class="facts-source"><a href="http://stats.espncricinfo.com/ci/content/records/83548.html">Source</a></p>      
+          <p class="facts-subtitle">Closest to him is KC Sangakkara (SL) with 93</p>
+        </div>
+        <p class="facts-title"><i class="fa fa-star"></i> Played on <b>{{uniqGroundsCount}}</b> Different Grounds</p>
+        <p class="facts-title"><i class="fa fa-star"></i> Wickets Taken : <b>{{wicketsCount}}</b></p>
+        <div>
+          <p class="facts-title"><i class="fa fa-star"></i> Number of times he scored above 50 Runs while Chasing and India won : {{fiftyChaseWinCount}} out of {{winChaseCount}}</p>
+          <p class="facts-subtitle">Performed Great When Needed</p>
+        </div>
+        <div>
+          <p class="facts-title"><i class="fa fa-star"></i> Number of times he scored above 35 Runs and India won : {{thirtyfiveAbvWin}} out of {{winCount}}</p>
+          <p class="facts-subtitle">Winning Contribution</p>
+        </div>      
+      </div>
+      <br><br>
+      <p style="text-align: center; font-size: 22px;">With So many records in so many forms of cricket. It is completely fair to regard him as <b>Greatest Player</b> or the <b>God Of Cricket</b></p>    
+    </div>
+  </form>
+</md-dialog>
